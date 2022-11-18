@@ -15,14 +15,14 @@ spec:
   parameters:
     - title: Provide some simple information
       required:
-        - domain_id
+        - component_id
         - owner
         - java_package_name
       properties:
-        domain_id:
+        component_id:
           title: Name
           type: string
-          description: Unique name of the domain
+          description: Unique name of the component
           ui:field: EntityNamePicker
         java_package_name:
           title: Java Package Name
@@ -35,7 +35,7 @@ spec:
         owner:
           title: Owner
           type: string
-          description: Owner of the domain
+          description: Owner of the component
           ui:field: OwnerPicker
           ui:options:
             allowedKinds:
@@ -61,9 +61,9 @@ spec:
         copyWithoutRender:
           - .github/workflows/*
         values:
-          domain_id: ${{ parameters.domain_id }}
+          component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
-          artifact_id: ${{ parameters.domain_id }}
+          artifact_id: ${{ parameters.component_id }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ parameters.owner }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
@@ -74,7 +74,7 @@ spec:
       action: publish:github
       input:
         allowedHosts: ["github.com"]
-        description: This is ${{ parameters.domain_id }}
+        description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
