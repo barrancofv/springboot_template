@@ -75,7 +75,7 @@ spec:
 
     - id: notify-slack
       name: Notify On Slack
-      action: notify:slack
+      action: notify:Slack
       input:
         component_id: ${{ parameters.component_id }}
         description: ${{ parameters.description }}
