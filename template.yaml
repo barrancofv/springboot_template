@@ -32,6 +32,10 @@ spec:
           title: Description
           type: string
           description: Help others understand what this website is for.
+        destination:
+          title: Destination
+          type: string
+          description: Destination.
         owner:
           title: Owner
           type: string
@@ -69,6 +73,15 @@ spec:
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           http_port: 8080
 
+    - id: notify-slack
+      name: Notify On Slack
+      action: notify:slack
+      input:
+        component_id: ${{ parameters.component_id }}
+        description: ${{ parameters.description }}
+        destination: ${{ parameters.destination }}
+        owner: ${{ parameters.owner }}
+        
     - id: publish
       name: Publish
       action: publish:github
