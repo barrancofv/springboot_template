@@ -76,11 +76,6 @@ spec:
     - id: notify-slack
       name: Notify On Slack
       action: notify:slack
-      input:
-        component_id: ${{ parameters.component_id }}
-        description: ${{ parameters.description }}
-        destination: ${{ parameters.destination }}
-        owner: ${{ parameters.owner }}
         
     - id: publish
       name: Publish
